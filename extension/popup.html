@@ -1,9 +1,118 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <title>Hello world </title>
-    </head>
-<body>      
-    <h2> Hello world!</h2>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<script type="text/javascript">
+var x=1
+function appendRow()
+{  
+   var d = document.createElement('div');
+   d.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
+    document.getElementById('additional').appendChild(d);
+    
+}
+</script>
+
+
+<style>
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<form action="#">
+  <div class="container" id="a">
+    <h1>NotBlue</h1>
+    <p>Please fill in this form to proceed on.</p>
+    <hr>
+
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Your Name" name="name" id="name" required>
+    
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+    
+    <label for="email2"><b>Friend Email</b></label>
+    
+    <input type="text" placeholder="Enter Friend Email" name="email2" id="email2" required>
+  </div>
+  <div class="container" id="additional">
+
+  </div>
+    <div class="container" id="div">
+        <button type="button" onclick ="appendRow()" value="Add Row">Add MailID</button>
+    </div>
+    <button type="submit" class="registerbtn">Register</button>
+  
+
+  
+
+</form>
+
 </body>
 </html>
