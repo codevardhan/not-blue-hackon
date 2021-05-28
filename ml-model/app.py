@@ -1,8 +1,8 @@
 import pickle, json
 from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
-from keras.preprocessing.text import Tokenizer
-from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 
 
