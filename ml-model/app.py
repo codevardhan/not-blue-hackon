@@ -1,4 +1,5 @@
-import Flask 
+from flask import Flask 
+from keras.preprocessing.text import Tokenizer
 
 app = Flask(__name__)
 
