@@ -3,24 +3,13 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<script type="text/javascript">
-var x=1
-function appendRow()
-{  
-   var d = document.createElement('div');
-   d.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
-    document.getElementById('additional').appendChild(d);
-    
-}
-</script>
-
+<script src="popup.js"></script>
 
 <style>
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+  background-color: white;
 }
 
 * {
@@ -35,7 +24,7 @@ body {
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 600px;
   padding: 15px;
   margin: 5px 0 22px 0;
   display: inline-block;
@@ -82,37 +71,38 @@ a {
 }
 </style>
 </head>
-<body>
+    <body>
+        <form action="#">
+          <div class="container" id="a">
+            <h1>NotBlue</h1>
+            <p>Please fill in this form to proceed on.</p>
+            <hr>
+            <label for="name"><b>Name</b></label>
+            <input type="text" placeholder="Enter Your Name" name="name" id="name" required>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
+            <label for="email2"><b>Friend Email</b></label>
+            <input type="text" placeholder="Enter Friend Email" name="email2" id="email2" required>
+          </div>
 
-<form action="#">
-  <div class="container" id="a">
-    <h1>NotBlue</h1>
-    <p>Please fill in this form to proceed on.</p>
-    <hr>
+          <div class="container" id="additional">
+            <div class="greeting-container">
+                <h2 class="greeting" id="greeting"></h2>
+              </div>
+            </div>
 
-    <label for="name"><b>Name</b></label>
-    <input type="text" placeholder="Enter Your Name" name="name" id="name" required>
-    
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
-
-    
-    <label for="email2"><b>Friend Email</b></label>
-    
-    <input type="text" placeholder="Enter Friend Email" name="email2" id="email2" required>
-  </div>
-  <div class="container" id="additional">
-
-  </div>
-    <div class="container" id="div">
-        <button type="button" onclick ="appendRow()" value="Add Row">Add MailID</button>
-    </div>
-    <button type="submit" class="registerbtn">Register</button>
-  
-
-  
-
-</form>
-
-</body>
+            <form class="name-form" id="name-form" action="#">
+                <button type="submit" class="name-button">Add</button>   
+            </form>
+        </form>
+    </body>
 </html>
+
+
+
+  <!--
+            <form class="add_row" id="add_row" action="#">
+                <button type="button" id ="butn" value="Add Row">Add MailID</button>
+                <button type="submit" class="name-button registerbtn">Add</button>   
+            </form>
+  -->
