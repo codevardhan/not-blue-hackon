@@ -53,7 +53,6 @@ class Send_email(Resource):
     @auth.login_required
     def post(self):
         recipients=request.get_json()
-        result = predict(data['search-term'], model)
         server=smtplib.SMTP_SSL("smtp.gmail.com",465)
         server.login("notblueorg@gmail.com","HarshSasiAdiAnji101")
         msg = MIMEMultipart()
@@ -66,7 +65,7 @@ class Send_email(Resource):
         msg.attach(body)
         server.sendmail(sender, recipients, msg.as_string())
         server.quit
-        return jsonify(result)
+        return jsonify("success")
 
 @app.route('/')
 def home():
