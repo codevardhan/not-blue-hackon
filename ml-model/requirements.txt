@@ -1,5 +1,7 @@
+wheel
 flask
 keras
 tensorflow
 flask_restful
+uwsgi
 keras
