@@ -1,49 +1,20 @@
-function openSettings() {
-  document.getElementById("settings").classList.toggle("settings-open");
+var x=1
+function appendRow()
+{  
+   var d = document.createElement('div');
+   d.innerHTML += "<input type='text' id='tst"+ x++ +"'><br >";
+    document.getElementById('additional').appendChild(d);
+    
 }
 
-document.getElementById("settings-button").addEventListener('click', openSettings)
-var user;
-
-function saveName() {
-  localStorage.setItem('email', user);
-  chrome.storage.sync.set({'email': user}, function() {
-  });
-}
-
-var user = localStorage.getItem('email');
+//let flag=document.getElementById("additional")
+//if (flag){
+//  console.log("yayy");
+//}
 
 
-if (user == null) {
-  user = "friend";
-}
-function changeName() {
-  user = document.getElementById("name-input").value;
-  var mailformat = new RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$');
-  console.log(mailformat.exec(user));
-  if(mailformat.exec(user))
-  {
-    console.log("You have entered a valid email address!");    //The pop up alert for a valid email address
-    saveName();
-    addEmail();
-  }
-  else{
-    errorCode();
-  }
 
-}
-
-document.getElementById("name-form").addEventListener('submit', function(e) { 
-  e.preventDefault()   
-  changeName();
-});
-
-function addEmail() {
-  document.getElementById("greeting").innerHTML  = `${user} Added!`;
-}
-
-function errorCode() {
-  document.getElementById("greeting").innerHTML  = `Enter valid Email !`;
-}
-
-document.addEventListener('DOMContentLoaded',addEmail())
+document.addEventListener('submit', function(e) { 
+e.preventDefault()   
+  appendRow();
+})
