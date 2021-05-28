@@ -1,14 +1,23 @@
-from flask import Flask 
+import pickle, json
+from flask import Flask, jsonify, request
+from flask_restful import Resource, Api
 from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import load_model
+
+
 
 app = Flask(__name__)
+api=Api(app)
 
-
-
+POSITIVE = False
+NEGATIVE = True
+SENTIMENT_THRESHOLDS = (0.4, 0.7)
 tokenizer = Tokenizer()
 
 with open('models/tokenizer.pickle', 'rb') as handle:
 	tokenizer = pickle.load(handle)
+
 
 def decode_sentiment(score):
 	score=1-score
@@ -29,10 +38,19 @@ def predict(text, def_model):
 	label = decode_sentiment(score)
 	return {"label": label, "score": float(score)}
 
+class Test_index(Resource):
+    def post(self):
+        model = load_model('models/best_model.h5')
+        data=request.get_json()
+        result = predict(data['search-term'], model)
+        return jsonify(result)
+
 
 @app.route('/')
 def home():
 	return "API home"
 
 if __name__=='__main__':
-    app.run()
+    app.run(host="0.0.0.0", debug=True)
+
+api.add_resource(Test_index, "/predict")
