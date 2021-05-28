@@ -1,9 +1,29 @@
 {
-    "manifest_version": 2, 
+    "manifest_version": 2,
+    "name": "NotBlue!",
+    "description": "Lets help you go ",
     "version": "1.0",
-    "name": "Hello World!",
-    "description": "Learning how to make a chrome extension!",
-    "browser_action":{
-        "default_popup": "popup.html"
-    }
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+       "128": "icon128.png"
+     },
+    "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon128.png"
+    },
+    "background": {
+      "scripts": ["background.js"],
+      "permissions": ["tabs","activeTab","storage","webRequest","http://*/"]
+    },
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "permissions": ["notifications","tabs","activeTab","storage","http://*/","*://*/*"],
+    "content_scripts":[
+        {
+          "matches":["<all_urls>"],
+          "js":["contentscript.js"],
+          "run_at":"document_start",
+          "permissions": ["http://*/","*://*/*"]
+        }
+      ]
 }
