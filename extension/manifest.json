@@ -1,0 +1,9 @@
+{
+    "manifest_version": 2, 
+    "version": "1.0",
+    "name": "Hello World!",
+    "description": "Learning how to make a chrome extension!",
+    "browser_action":{
+        "default_popup": "popup.html"
+    }
+}
