@@ -15,7 +15,10 @@ body {
 * {
   box-sizing: border-box;
 }
-
+h1{
+  font-size: 30px;
+  color: black;
+}
 /* Add padding to containers */
 .container {
   padding: 16px;
@@ -76,14 +79,14 @@ a {
         <form action="#">
           <div class="container" id="a">
             <h1>NotBlue</h1>
-            <p>Please fill in this form to proceed on.</p>
+            <h2 id="info">Please fill in this form to proceed on.</h2>
             <hr>
             <label for="name"><b>Name</b></label>
             <input type="text" placeholder="Enter Your Name" name="name" id="name" required>
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" id="email" required>
             <label for="email2"><b>Friend Email</b></label>
-            <input type="text" placeholder="Enter Friend Email" name="email2" id="email2" required>
+            <input type="text" placeholder="Enter Friend Email" name="email_pri" id="email_pri" required>
           </div>
 
           <div class="container" id="additional">
@@ -93,7 +96,7 @@ a {
             </div>
 
             <form class="name-form" id="name-form" action="#">
-                <button type="submit" id="add" class="registerbtn">Add another email</button>   
+                <button type="button" id="add" class="registerbtn">Add another email</button>   
                 <button type="submit" id="submit" class="registerbtn">Register</button>   
             </form>
         </form>
