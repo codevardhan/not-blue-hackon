@@ -1,4 +1,5 @@
 import pickle, json, smtplib
+from flask import Flask, jsonify, request
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from flask_restful import Resource, Api
@@ -44,6 +45,13 @@ def predict(text, def_model):
 class Predict_dep_ml(Resource):
     def post(self):
         model = load_model('models/best_model.h5')
+        data=request.get_json()
+        result = predict(data['search-term'], model)
+        return jsonify(result)
+
+class Send_email(Resource):
+    @auth.login_required
+    def post(self):
         recipients=request.get_json()
         result = predict(data['search-term'], model)
         server=smtplib.SMTP_SSL("smtp.gmail.com",465)
@@ -59,11 +67,6 @@ class Predict_dep_ml(Resource):
         server.sendmail(sender, recipients, msg.as_string())
         server.quit
         return jsonify(result)
-
-class Send_email(Resource):
-    @auth.login_required
-    def post(self):
-        data=request.get_json()
 
 @app.route('/')
 def home():
