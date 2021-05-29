@@ -1,0 +1,11 @@
+Dear Sir/Ma'am,
+
+This notification is to report that {user_name} was found searching for things that indicate signs of mental anxiety. We would like you to go through the search history that triggered this alert, and then enquire about {user_name}'s mental health from his relatives/friends.  Please do not hesitate to contact a certified clinical therapist for more advice. We hope to have this issue resolved as soon as possible and wish you best of luck for the same!
+
+User details:
+Name - {user_name}
+Email - {user_email}
+
+This is an automatically generated email – please do not reply to it. 
+Best regards,
+Not Blue

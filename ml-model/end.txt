@@ -1,0 +1,2 @@
+<i><b>Why am I getting this email?</b><br>
+This message was sent to you because you were listed as the emergency contact in our chrome extension app, Not Blue, that was installed on {user_name}'s browser. To learn more, click <a href="https://github.com/codevardhan/not-blue-hackon">here</a></i>

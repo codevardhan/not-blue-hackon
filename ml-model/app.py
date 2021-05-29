@@ -8,6 +8,7 @@ from flask_httpauth import HTTPBasicAuth
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from dotenv import dotenv_values
+from pathlib import Path
 
 config = dotenv_values(".env")
 
@@ -80,9 +81,21 @@ class Send_email(Resource):
         msg["From"] = sender
         msg["To"] = ", ".join(recipients)
         # create body of email
-        body = f"{user_name}, hope you get well soon. {user_email}"
+        body = (
+            Path("body.txt")
+            .read_text()
+            .format(user_name=user_name, user_email=user_email)
+        )
+        endtext = (
+            Path("end.txt")
+            .read_text()
+            .format(user_name=user_name, user_email=user_email)
+        )
+
         body = MIMEText(body)
+        endtext = MIMEText(endtext, "html")
         msg.attach(body)
+        msg.attach(endtext)
         server.sendmail(sender, recipients, msg.as_string())
         server.quit
         return jsonify("success")
