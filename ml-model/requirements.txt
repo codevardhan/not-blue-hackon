@@ -6,3 +6,4 @@ flask_restful
 uwsgi
 keras
 flask_httpauth
+python-dotenv
