@@ -1,6 +1,6 @@
 # notblue_hackon_2.0
 
-![Collaborators](https://img.shields.io/badge/collaborators-5-red)<br>
+![Collaborators](https://img.shields.io/badge/collaborators-4-red)<br>
 ![Status](https://img.shields.io/badge/status-completed-yellow)<br>
 ![Issues](https://img.shields.io/badge/issues-0-blue)<br>
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)<br>
