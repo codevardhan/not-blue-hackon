@@ -77,7 +77,7 @@ class Send_email(Resource):
         # email info
         msg = MIMEMultipart()
         sender = "notblueorg@gmail.com"
-        msg["Subject"] = "Friend Alert"
+        msg["Subject"] = "Important notification from Not Blue"
         msg["From"] = sender
         msg["To"] = ", ".join(recipients)
         # create body of email
@@ -91,7 +91,7 @@ class Send_email(Resource):
             .read_text()
             .format(user_name=user_name, user_email=user_email)
         )
-
+        print(body)
         body = MIMEText(body)
         endtext = MIMEText(endtext, "html")
         msg.attach(body)
