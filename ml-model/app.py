@@ -93,7 +93,7 @@ def home():
     return 'API is active! Please send a POST request to "/predict" with the phrase you would like to test. Syntax: {"search-term": "&#60;insert phrase to test&#62;"}'
 
 
-# verify API authnication
+# verify API authentication
 @auth.verify_password
 def verify(username, password):
     if not (username and password):
