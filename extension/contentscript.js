@@ -17,9 +17,6 @@ function send(query){
       .then(response => response.text())
       .then(function (result) {
         flag=result
-        chrome.storage.sync.get('email', function(items) {
-        temp=items.email
-        console.log(temp)})
         setTimeout(() => {
           let current_score=JSON.parse(flag).score;
           //console.log("Done");
@@ -63,7 +60,7 @@ function mails(){
     temp=items.email
     console.log(temp)
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Basic YWRtaW46aGFyc2hpc2FzZXh5YmVhc3Q=");
+    myHeaders.append("Authorization", "Basic YWRtaW46OXFhNXpiI05NNnlLYW5MQw==");
     myHeaders.append("Content-Type", "application/json");
 var raw = JSON.stringify(temp);
 
