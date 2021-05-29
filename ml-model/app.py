@@ -7,14 +7,20 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 from flask_httpauth import HTTPBasicAuth
+from dotenv import dotenv_values
 
 app = Flask(__name__)
 api=Api(app)
 auth=HTTPBasicAuth()
 
-USER_DATA= {
-    "admin": "harshisasexybeast"
-}
+config = dotenv_values(".env")
+
+API_UNAME=config['API_UNAME'] 
+API_PASS=config['API_PASS']
+EMAIL_UNAME=config['EMAIL_UNAME']
+EMAIL_PASS=config['EMAIL_PASS']
+
+USER_DATA= {API_UNAME:API_PASS}
 
 POSITIVE = False
 NEGATIVE = True
@@ -52,15 +58,21 @@ class Predict_dep_ml(Resource):
 class Send_email(Resource):
     @auth.login_required
     def post(self):
+        #get data from API endpoint
         recipients=request.get_json()
-        server=smtplib.SMTP_SSL("smtp.gmail.com",465)
-        server.login("notblueorg@gmail.com","HarshSasiAdiAnji101")
+        user_name=recipients[0]
+        user_email=recipients[1]
+        recipients=recipients[2:]
+        #start SMTP server to send email
+        server=smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        server.login(EMAIL_UNAME, EMAIL_PASS)
+        #create body of email
         msg = MIMEMultipart()
         sender = 'notblueorg@gmail.com'
         msg['Subject'] = "Friend Alert"
         msg['From'] = sender
         msg['To'] = ", ".join(recipients)
-        body = 'This is the body of the email.'
+        body = f"{user_name}, hope you get well soon. {user_email}"
         body = MIMEText(body)
         msg.attach(body)
         server.sendmail(sender, recipients, msg.as_string())
