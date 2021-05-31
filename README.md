@@ -1,6 +1,4 @@
-# Not Blue Hackon
-
-#### Official Entry of Team ---AI---, for HackOn 2.0 Hackathon
+# Not Blue 
 
 ![Collaborators](https://img.shields.io/badge/collaborators-4-red)<br>
 ![Status](https://img.shields.io/badge/status-completed-yellow)<br>
